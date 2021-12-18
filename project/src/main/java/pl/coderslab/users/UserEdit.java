@@ -13,6 +13,9 @@ import java.io.IOException;
 public class UserEdit extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+        response.setCharacterEncoding("UTF-8");
+
         String idString = request.getParameter("id");
         Integer id = -1;
         try {
@@ -29,6 +32,9 @@ public class UserEdit extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+        response.setCharacterEncoding("UTF-8");
+
         String userName = request.getParameter("username");
         String idString = request.getParameter("id");
         String email = request.getParameter("email");

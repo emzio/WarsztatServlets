@@ -12,6 +12,10 @@ import java.io.IOException;
 public class UserShow extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        response.setContentType("text/html");
+        response.setCharacterEncoding("UTF-8");
+
         String idString = request.getParameter("id");
         try {
             int id = Integer.parseInt(idString);

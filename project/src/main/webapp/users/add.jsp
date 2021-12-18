@@ -7,11 +7,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
-<head>
-    <title>Add</title>
-</head>
-<body>
+<%--<html>--%>
+<%--<head>--%>
+<%--    <title>Add</title>--%>
     <%@ include file="/users/header.jsp" %>
 
     <div class="container-fluid">
@@ -21,39 +19,43 @@
             <a href="/user/list" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                     class="fas fa-download fa-sm text-white-50"></i> Lista użytkowników </a>
         </div>
+    </div>
 
-        <div class="row">
-            <div class="card py-3">
-                <form action="" method="post">
+<div class="card">
+    <div class="container-fluid">
+        <h3 class="m-2 font-weight-bolder text-info ">Dodaj użytkownika</h3>
+<%--        wstawka--%>
+        <h2 class="m-2 font-weight-bolder text-danger"><c:if test="${not empty error}">
+            Podany email już istnieje!
+        </c:if></h2>
+        <%--    wstawka--%>
+    </div>
 
+<%--    wstawka--%>
+    <h1>email status<c:out value="${error}" default="empty attribute"/>
+    </h1>
 
-                    <div class="form-check">
-<%--                    <div class="col-2">--%>
-<%--                                            <fieldset>--%>
-                        <label for="username">User Name</label>
-                        <input id="username" name="username" type="text" placeholder="User Name"/>
-<%--                                            </fieldset>--%>
-                    </div>
-                    <div class="form-check">
-                        <%--                    <fieldset>--%>
-                        <label for="email">Email</label>
-                        <input id="email" name="email" type="email" placeholder="Email"/>
-                        <%--                    </fieldset>--%>
-                    </div>
-                    <div class="form-check">
-                        <%--                    <fieldset>--%>
-                        <label for="password">Password</label>
-                        <input id="password" name="password" type="password" placeholder="Password"/>
-                        <%--                    </fieldset>--%>
-                    </div>
-                    <div class="form-check">
-                        <input type="submit" value="Dodaj Użytkownika" />
-                    </div>
+<%--    koniec--%>
 
-                </form>
+    <div class="m-2 container-fluid">
+        <form action="" method="post">
+            <div class="form-group">
+                    <label for="username">User Name</label>
+                    <input  class="form-control" id="username" name="username" type="text" placeholder="User Name"/>
             </div>
-<%--    </div>--%>
+            <div class="form-group">
+                    <label for="email">Email</label>
+                    <input class="form-control" id="email" name="email" type="email" placeholder="Email"/>
+            </div>
+            <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="form-control" id="password" name="password" type="password" placeholder="Password"/>
+            </div>
+            <div class="form-check">
+                <input type="submit" value="Dodaj Użytkownika" />
+            </div>
+        </form>
+    </div>
+</div>
 
     <%@ include file="/users/footer.jsp" %>
-</body>
-</html>
