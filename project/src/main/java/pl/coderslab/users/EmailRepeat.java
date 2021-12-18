@@ -9,13 +9,18 @@ import java.io.IOException;
 public class EmailRepeat extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+        response.setCharacterEncoding("UTF-8");
+
+
         request.setAttribute("error", "email");
-        response.getWriter().println("email.powtórka");
         getServletContext().getRequestDispatcher("/users/add.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+        response.setCharacterEncoding("UTF-8");
 
     }
 }

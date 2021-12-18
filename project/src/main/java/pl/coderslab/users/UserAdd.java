@@ -16,6 +16,11 @@ public class UserAdd extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         response.getWriter().println("user/add");
+
+//        if(request.getParameter("error").equals("email")){
+//            System.out.println("ustawianie error w GET");   // do usunięcia - kontrola
+//            request.setAttribute("error", "email");
+//        }
         getServletContext().getRequestDispatcher("/users/add.jsp").forward(request, response);
     }
 
@@ -33,20 +38,22 @@ public class UserAdd extends HttpServlet {
         response.getWriter().println(user.toString());
         UserDao userDao = new UserDao();
 
-        emailRepeat(user, userDao);
+//        emailRepeat(user, userDao);
+//
+//        User userAdded = userDao.create(user);
+//        response.getWriter().println(userAdded);
 
-        User userAdded = userDao.create(user);
-        response.getWriter().println(userAdded);
-
-        response.sendRedirect("/user/list");
+//        response.sendRedirect("/user/list");
 
 
 //        początek zmian faza2
-//        if(!emailRepeat(user,userDao)){
-//            response.sendRedirect("/user/list");
-//        } else {
-//            response.sendRedirect("/user/emailRepeat");
-//        }
+        if(!emailRepeat(user,userDao)){
+            userDao.create(user);
+            response.sendRedirect("/user/list");
+
+        } else {
+            response.sendRedirect("/user/emailRepeat");
+        }
     }
 
     protected static boolean emailRepeat (User user, UserDao userDao){

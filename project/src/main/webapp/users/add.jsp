@@ -7,9 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--<html>--%>
-<%--<head>--%>
-<%--    <title>Add</title>--%>
+    <title>Add</title>
     <%@ include file="/users/header.jsp" %>
 
     <div class="container-fluid">
@@ -31,14 +29,9 @@
         <%--    wstawka--%>
     </div>
 
-<%--    wstawka--%>
-    <h1>email status<c:out value="${error}" default="empty attribute"/>
-    </h1>
-
-<%--    koniec--%>
 
     <div class="m-2 container-fluid">
-        <form action="" method="post">
+        <form action="/user/add" method="post">
             <div class="form-group">
                     <label for="username">User Name</label>
                     <input  class="form-control" id="username" name="username" type="text" placeholder="User Name"/>
